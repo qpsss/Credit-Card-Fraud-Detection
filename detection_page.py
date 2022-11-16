@@ -25,9 +25,9 @@ def show_detection_page():
     if i:
         trueResult = y_test.iloc[i]
         if trueResult == 1:
-            trueResult = "FRUAD"
+            trueResult = "FRAUD"
         elif trueResult == 0:
-            trueResult = "NOT FRUAD"
+            trueResult = "NOT FRAUD"
         st.subheader(f'This transaction is {trueResult}')
         st.dataframe(X_test.iloc[i], use_container_width=True)
         
@@ -36,9 +36,9 @@ def show_detection_page():
         result = logModel.predict(X_test.iloc[i].values.reshape(1, -1))
         
         if result == 1:
-            result = "FRUAD"
+            result = "FRAUD"
         elif result == 0:
-            result = "NOT FRUAD"
+            result = "NOT FRAUD"
         
         st.subheader(f'Detected: {result}')
 
